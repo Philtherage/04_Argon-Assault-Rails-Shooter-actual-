@@ -14,3 +14,5 @@
 
 * Section 4: 81. Playing Music Between Scenes.
 
+* Section 4: 82. Unitys Waypoint Utility Scripts.
+
