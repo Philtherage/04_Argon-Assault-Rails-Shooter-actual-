@@ -11,3 +11,6 @@
 * Section 4: 79. Add Player Ship.
 
 * Section 4: 80. Setup Splash Screen.
+
+* Section 4: 81. Playing Music Between Scenes.
+
