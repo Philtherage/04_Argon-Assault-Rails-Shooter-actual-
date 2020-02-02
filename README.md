@@ -7,3 +7,5 @@
 * Section 4: 77 Texture The Terrain.
 
 * Section 4: 78. Add A Skybox.
+
+* Section 4: 79. Add Player Ship.
