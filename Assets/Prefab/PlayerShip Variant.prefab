@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xSpeed: 10
-  xScreenClamp: 6
+  xScreenClamp: 4.5
   ySpeed: 10
-  yScreenClamp: 3.5
+  yScreenClamp: 3
   positionPitchFactor: -5
-  controlPositionPitchFactor: -30
-  positionYawFactor: -2
-  controlPositionYawFactor: -2
+  controlPitchFactor: -20
+  PositionRollFactor: -30
+  controlYawFactor: 3
 --- !u!1001 &2363716514211377348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33,15 +33,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012864786508, guid: c609ff1263f22a045a115cc9524ecdc7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.39
       objectReference: {fileID: 0}
     - target: {fileID: 4000012864786508, guid: c609ff1263f22a045a115cc9524ecdc7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.13
+      value: -1.66
       objectReference: {fileID: 0}
     - target: {fileID: 4000012864786508, guid: c609ff1263f22a045a115cc9524ecdc7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.17
+      value: 4.97
       objectReference: {fileID: 0}
     - target: {fileID: 4000012864786508, guid: c609ff1263f22a045a115cc9524ecdc7, type: 3}
       propertyPath: m_LocalRotation.x
