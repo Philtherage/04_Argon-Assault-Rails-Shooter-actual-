@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xSpeed: 10
   xRotateSpeed: 10
+  xScreenClamp: 6
+  xRotateClamp: 40
   ySpeed: 10
   yRotateSpeed: 10
+  yScreenClamp: 3.5
+  yRotateClamp: 40
 --- !u!1001 &2363716514211377348
 PrefabInstance:
   m_ObjectHideFlags: 0
