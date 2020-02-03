@@ -18,4 +18,6 @@
 
 * Section 4: 84. Using Cross Platform Input.
 
-* Section 4: 85. Mathf.Clamp() To Restrict Movement.
+* Section 4: 85. Input Sensitivity & Gravity.
+
+* Section 4: 86. Mathf.Clamp() To Restrict Movement.
