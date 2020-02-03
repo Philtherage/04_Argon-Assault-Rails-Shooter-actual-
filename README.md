@@ -20,4 +20,4 @@
 
 * Section 4: 85. Input Sensitivity & Gravity.
 
-* Section 4: 86. Mathf.Clamp() To Restrict Movement.
+* Section 4: 86. Mathf.Clamp() To Restrict Movement. (Setup y movement and rotation also).
