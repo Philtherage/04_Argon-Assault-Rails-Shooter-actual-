@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Tooltip("In meters per second")]
+    [SerializeField] float xSpeed = 4f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +17,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         float horizontalThrow = Input.GetAxis("Horizontal");
-        Debug.Log(horizontalThrow);
+        float xOffsetThisFrame = horizontalThrow * xSpeed * Time.deltaTime;
+        Debug.Log(xOffsetThisFrame);
     }
 }
