@@ -25,3 +25,5 @@
 * Section 4: 89. Rotate Ship With Position & Throw.
 
 * Section 4: 90. Time To Tweak And Tune.
+
+* Section 4: 92. Explosion Particles & SFX.
