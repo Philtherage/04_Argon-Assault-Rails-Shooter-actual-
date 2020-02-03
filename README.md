@@ -26,4 +26,6 @@
 
 * Section 4: 90. Time To Tweak And Tune.
 
+* Section 3: 91. Create Bullet Particles.
+
 * Section 4: 92. Explosion Particles & SFX.
