@@ -33,3 +33,5 @@
 * Section 4: 93. Dodge And Shoot.
 
 * Section 4: 95. Project Tidying Checklist.
+
+* Section 4: 96. Triggers & Collisions In Unity.

@@ -14,8 +14,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float PositionRollFactor = -20f;
     [SerializeField] float controlYawFactor = 5f;
  
-
-
     float xThrow;
     float yThrow;
 
@@ -63,5 +61,8 @@ public class PlayerController : MonoBehaviour
         transform.localRotation = Quaternion.Euler(pitch,yaw,roll);
     }
 
-
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Player Triggered Something");
+    }
 }
