@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 4069866118125656}
   - component: {fileID: 33965953865074876}
   - component: {fileID: 23863082315245842}
-  - component: {fileID: 6455666917365465581}
-  - component: {fileID: -623417470979338867}
   m_Layer: 0
   m_Name: Ship_06
   m_TagString: Untagged
@@ -81,32 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6455666917365465581
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1875551938172112}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.7473191, y: 0.11109684, z: 0.6822821}
-  m_Center: {x: 0, y: 0.0000000037252903, z: 0}
---- !u!114 &-623417470979338867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1875551938172112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f0684428d222fe42918932a72899448, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathExplosion: {fileID: 8866677884820786360}
 --- !u!1001 &5393147471253695541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -181,12 +153,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f730ea5b841aa2a41a3c9353edf29a4f, type: 3}
---- !u!1 &8866677884820786360 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3590648201768689805, guid: f730ea5b841aa2a41a3c9353edf29a4f,
-    type: 3}
-  m_PrefabInstance: {fileID: 5393147471253695541}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8866677884820786364 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3590648201768689801, guid: f730ea5b841aa2a41a3c9353edf29a4f,

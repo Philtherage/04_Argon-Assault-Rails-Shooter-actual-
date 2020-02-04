@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Enemy : MonoBehaviour
 {
     [SerializeField] GameObject deathExplosion;
 
+
+    BoxCollider boxCollider;
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (!gameObject.GetComponent<BoxCollider>())
+        {
+            boxCollider = gameObject.AddComponent<BoxCollider>();
+            boxCollider.isTrigger = false;
+        }      
     }
 
     private void OnParticleCollision(GameObject other)
@@ -24,7 +26,7 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject,1f);
         deathExplosion.SetActive(true);
         gameObject.GetComponent<MeshRenderer>().enabled = false;
-        gameObject.GetComponent<BoxCollider>().enabled = false;
+        boxCollider.enabled = false;
         
     }
 }
