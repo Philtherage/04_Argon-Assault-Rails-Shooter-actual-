@@ -31,3 +31,5 @@
 * Section 4: 92. Explosion Particles & SFX.
 
 * Section 4: 93. Dodge And Shoot.
+
+* Section 4: 95. Project Tidying Checklist.
