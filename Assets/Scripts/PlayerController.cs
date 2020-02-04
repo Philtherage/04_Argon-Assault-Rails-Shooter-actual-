@@ -17,18 +17,18 @@ public class PlayerController : MonoBehaviour
     float xThrow;
     float yThrow;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    bool isAlive = true;
 
     // Update is called once per frame
     void Update()
     {
-        XMovement();
-        YMovement();
-        ProcessRotation();
+        if (isAlive)
+        {
+            XMovement();
+            YMovement();
+            ProcessRotation();
+
+        }
     }
 
     private void XMovement()
@@ -61,8 +61,10 @@ public class PlayerController : MonoBehaviour
         transform.localRotation = Quaternion.Euler(pitch,yaw,roll);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnPlayerDeath() // called by string reference
     {
-        Debug.Log("Player Triggered Something");
+        Debug.Log("Controls Frozen");
+        isAlive = false;
     }
+
 }

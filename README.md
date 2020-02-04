@@ -35,3 +35,5 @@
 * Section 4: 95. Project Tidying Checklist.
 
 * Section 4: 96. Triggers & Collisions In Unity.
+
+* Section 4: 97. SendMessage() Between Components.
