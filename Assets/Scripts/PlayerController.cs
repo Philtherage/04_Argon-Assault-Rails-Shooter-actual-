@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float controlPitchFactor = -20f;
     [SerializeField] float PositionRollFactor = -20f;
     [SerializeField] float controlYawFactor = 5f;
+    [SerializeField] List<GameObject> bullets;
  
     float xThrow;
     float yThrow;
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
             XMovement();
             YMovement();
             ProcessRotation();
-
+            ProcessFiring();
         }
     }
 
@@ -61,10 +62,35 @@ public class PlayerController : MonoBehaviour
         transform.localRotation = Quaternion.Euler(pitch,yaw,roll);
     }
 
+    private void ProcessFiring()
+    {
+        if (Input.GetButton("Fire1"))
+        {
+            if(bullets.Count <= 0) { Debug.LogError("NO BULLET OBJECT LINKED TO PLAYERCONTROLLER! "); }
+            foreach(GameObject bullet in bullets)
+            {
+                bullet.SetActive(true);
+                if (Input.GetButtonUp("Fire1"))
+                {
+                    bullet.SetActive(false);
+                }
+            }
+        }
+        else
+        {
+            foreach (GameObject bullet in bullets)
+            {
+                bullet.SetActive(false);
+            }
+        }
+        
+    }
+
     private void OnPlayerDeath() // called by string reference
     {
         Debug.Log("Controls Frozen");
         isAlive = false;
+        
     }
 
 }

@@ -6,10 +6,24 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     [SerializeField] float loadDelay = 2f;
-
+    [SerializeField] float restartLevelDelay = 1f;
 
 
     int currentSceneIndex;
+
+    private void Awake()
+    {
+        int currentLevelLoaders = FindObjectsOfType<LevelLoader>().Length;
+        if(currentLevelLoaders > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,16 +32,28 @@ public class LevelLoader : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        StartCoroutine(LoadNextFromSplash());
+    {  
+        StartCoroutine(LoadNextFromSplash());  
     }
 
-    public IEnumerator LoadNextFromSplash()
+    private IEnumerator LoadNextFromSplash()
     {
-        if(currentSceneIndex == 0)
+        if (currentSceneIndex == 0)
         {
             yield return new WaitForSeconds(loadDelay);
-            SceneManager.LoadScene(currentSceneIndex += 1);
+            if(currentSceneIndex > 0) { yield break; }
+            SceneManager.LoadScene(currentSceneIndex += 1);           
         }
+    }
+
+    private IEnumerator RestartLevelLoadDelay()
+    {
+        yield return new WaitForSeconds(restartLevelDelay);
+        SceneManager.LoadScene(currentSceneIndex);
+    }
+
+    public void RestartLevel()
+    {
+        StartCoroutine(RestartLevelLoadDelay());
     }
 }
