@@ -47,3 +47,5 @@
 * Section 4: 102. Instantiating At Runtime.
 
 * Section 4: 103. Add Simple Score UI.
+
+* Section 4: 104. A ScoreBoard Class.
