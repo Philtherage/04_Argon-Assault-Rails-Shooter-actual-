@@ -13,10 +13,15 @@ public class Enemy : MonoBehaviour
 
     BoxCollider boxCollider;
     ScoreHandler scoreHandler;
+    HealthHandler health;
+    PlayerController player;
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        player = FindObjectOfType<PlayerController>();
+        health = GetComponent<HealthHandler>();
         scoreHandler = FindObjectOfType<ScoreHandler>();
         AddNoneTriggerBoxCollider();
     }
@@ -32,14 +37,16 @@ public class Enemy : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        if(other.GetComponent<PlayerController>()) { return; }    
-        Destroy(gameObject);
-
-        GameObject deathVFX = Instantiate(deathExplosion, transform.position, Quaternion.identity) as GameObject;
-        deathVFX.transform.parent = parent;
-        Destroy(deathVFX, 1.5f);     
-          
-        scoreHandler.AddToScore(score);
+        if (other.GetComponent<PlayerController>()) { return; }
+        if (health.GetHealth() <= 0)
+        {
+            Destroy(gameObject);
+            GameObject deathVFX = Instantiate(deathExplosion, transform.position, Quaternion.identity) as GameObject;
+            deathVFX.transform.parent = parent;
+            Destroy(deathVFX, 1.5f);           
+            scoreHandler.AddToScore(score);
+        }
+        health.DealDamage(player.GetBulletDamage());
         
     }
 

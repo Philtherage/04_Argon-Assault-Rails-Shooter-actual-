@@ -51,3 +51,5 @@
 * Section 4: 104. A ScoreBoard Class.
 
 * Section 4: 106. Introducing Encapsulation.
+
+* Section 4: 107. Back-Pedalling With Version Control.

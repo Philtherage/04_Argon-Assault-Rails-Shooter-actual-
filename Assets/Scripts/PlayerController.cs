@@ -13,7 +13,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float controlPitchFactor = -20f;
     [SerializeField] float PositionRollFactor = -20f;
     [SerializeField] float controlYawFactor = 5f;
+    [Header("Damage System")]
     [SerializeField] List<GameObject> bullets;
+    [SerializeField] int bulletDamage = 25;
  
     float xThrow;
     float yThrow;
@@ -93,4 +95,8 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    public int GetBulletDamage()
+    {
+        return bulletDamage;
+    }
 }
