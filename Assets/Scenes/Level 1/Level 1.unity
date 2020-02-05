@@ -2075,5 +2075,15 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 8480506838300877604, guid: 157a1ce0385e4d7448e0a36fdb6d39d6,
+        type: 3}
+      propertyPath: timeBetweenPoints
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480506838300877604, guid: 157a1ce0385e4d7448e0a36fdb6d39d6,
+        type: 3}
+      propertyPath: scoreUpdateTime
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 157a1ce0385e4d7448e0a36fdb6d39d6, type: 3}

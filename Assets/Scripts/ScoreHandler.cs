@@ -7,7 +7,14 @@ public class ScoreHandler : MonoBehaviour
 {
 
     [SerializeField] TMPro.TextMeshProUGUI scoreText;
-    private int playerScore = 0;
+    [Tooltip("Gives the player points over time for still being alive")]   
+    [SerializeField] int scorePointsOverTime = 10;
+    [SerializeField] float timeBetweenPoints = 5f;
+    [Tooltip("the score increases over the set amount of time")]
+    [SerializeField] float scoreUpdateTime = .2f;
+
+    private float playerScore = 0;
+    private float displayScore = 0;
 
     private void Awake()
     {
@@ -24,14 +31,32 @@ public class ScoreHandler : MonoBehaviour
     }
     // Start is called before the first frame update
     void Start()
-    {        
+    {
+        displayScore = playerScore;
         scoreText.text = playerScore.ToString();
+        InvokeRepeating("PointsOverTime", timeBetweenPoints, timeBetweenPoints);
     }
 
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = playerScore.ToString();
+        StartCoroutine(ScoreIncreament());
+    }
+
+    private void PointsOverTime() // this method is called using a string ref
+    {
+        playerScore += scorePointsOverTime;
+    }
+
+    private IEnumerator ScoreIncreament()
+    {
+
+        if(displayScore < playerScore)
+        {
+            displayScore++;            
+            scoreText.text = displayScore.ToString();
+        }
+        yield return new WaitForSeconds(scoreUpdateTime);
     }
 
     public void AddToScore(int score)

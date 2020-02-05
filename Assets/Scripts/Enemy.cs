@@ -12,15 +12,22 @@ public class Enemy : MonoBehaviour
 
 
     BoxCollider boxCollider;
+    ScoreHandler scoreHandler;
 
     // Start is called before the first frame update
     void Start()
+    {
+        scoreHandler = FindObjectOfType<ScoreHandler>();
+        AddNoneTriggerBoxCollider();
+    }
+
+    private void AddNoneTriggerBoxCollider()
     {
         if (!gameObject.GetComponent<BoxCollider>())
         {
             boxCollider = gameObject.AddComponent<BoxCollider>();
             boxCollider.isTrigger = false;
-        }      
+        }
     }
 
     private void OnParticleCollision(GameObject other)
@@ -32,8 +39,7 @@ public class Enemy : MonoBehaviour
         deathVFX.transform.parent = parent;
         Destroy(deathVFX, 1.5f);     
           
-        FindObjectOfType<ScoreHandler>().AddToScore(score);
-        
+        scoreHandler.AddToScore(score);
         
     }
 
