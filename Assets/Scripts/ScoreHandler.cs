@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class ScoreHandler : MonoBehaviour
 {
 
-    [SerializeField] Text scoreText;
-
+    [SerializeField] TMPro.TextMeshProUGUI scoreText;
+    
     private int playerScore = 0;
 
     private void Awake()
@@ -21,10 +21,12 @@ public class ScoreHandler : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
+        
     }
     // Start is called before the first frame update
     void Start()
-    {
+    {        
+        scoreText.text = GetComponent<TMPro.TextMeshProUGUI>().text;
         scoreText.text = playerScore.ToString();
     }
 

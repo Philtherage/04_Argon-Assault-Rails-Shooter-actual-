@@ -45,3 +45,5 @@
 * Section 4: 101. Making Scripts Add Components.
 
 * Section 4: 102. Instantiating At Runtime.
+
+* Section 4: 103. Add Simple Score UI.
