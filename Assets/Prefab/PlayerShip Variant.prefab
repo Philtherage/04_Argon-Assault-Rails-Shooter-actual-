@@ -52,6 +52,12 @@ MonoBehaviour:
   bullets:
   - {fileID: 1288013474200524718}
   - {fileID: 6017623300572338283}
+  bulletDamage: 25
+  maxGunHeat: 10
+  timeGunHeatIncrease: 0.2
+  timeGunHeatDecrease: 0.2
+  gunHeatUpSpeed: 5
+  gunCoolDownSpeed: 10
 --- !u!114 &1712559528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,6 +82,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Explosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 3590648201768689805, guid: f730ea5b841aa2a41a3c9353edf29a4f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3590648201768689801, guid: f730ea5b841aa2a41a3c9353edf29a4f,
         type: 3}
@@ -165,10 +176,6 @@ PrefabInstance:
     - target: {fileID: 1000012790150022, guid: c609ff1263f22a045a115cc9524ecdc7, type: 3}
       propertyPath: m_Name
       value: PlayerShip
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012790150022, guid: c609ff1263f22a045a115cc9524ecdc7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000012864786508, guid: c609ff1263f22a045a115cc9524ecdc7, type: 3}
       propertyPath: m_LocalPosition.x

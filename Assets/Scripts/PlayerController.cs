@@ -16,11 +16,21 @@ public class PlayerController : MonoBehaviour
     [Header("Damage System")]
     [SerializeField] List<GameObject> bullets;
     [SerializeField] int bulletDamage = 25;
- 
+    [Header("Gun Heat Settings")]
+    [SerializeField] float maxGunHeat = 20f;
+    [SerializeField] float timeGunHeatIncrease = .2f;
+    [SerializeField] float timeGunHeatDecrease = .2f;
+    [SerializeField] float gunHeatUpSpeed = 5f;
+    [SerializeField] float gunCoolDownSpeed = 10f;
+
+
+
     float xThrow;
     float yThrow;
+    float currentGunHeat = 0;
 
     bool isAlive = true;
+    bool isFiring = false;
 
     // Update is called once per frame
     void Update()
@@ -31,6 +41,7 @@ public class PlayerController : MonoBehaviour
             YMovement();
             ProcessRotation();
             ProcessFiring();
+            ProcessGunHeat();
         }
     }
 
@@ -61,21 +72,19 @@ public class PlayerController : MonoBehaviour
 
         float roll = xThrow * PositionRollFactor;
 
-        transform.localRotation = Quaternion.Euler(pitch,yaw,roll);
+        transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
 
     private void ProcessFiring()
-    {
+    {     
         if (Input.GetButton("Fire1"))
-        {
-            if(bullets.Count <= 0) { Debug.LogError("NO BULLET OBJECT LINKED TO PLAYERCONTROLLER! "); }
-            foreach(GameObject bullet in bullets)
+        {        
+            if (bullets.Count <= 0) { Debug.LogError("NO BULLET OBJECT LINKED TO PLAYERCONTROLLER! "); }
+            foreach (GameObject bullet in bullets)
             {
+                if (IsGunOverheated()) { bullet.SetActive(false); }
                 bullet.SetActive(true);
-                if (Input.GetButtonUp("Fire1"))
-                {
-                    bullet.SetActive(false);
-                }
+                isFiring = true;                
             }
         }
         else
@@ -83,14 +92,26 @@ public class PlayerController : MonoBehaviour
             foreach (GameObject bullet in bullets)
             {
                 bullet.SetActive(false);
+                isFiring = false;
             }
+            
         }
-        
+}
+
+    private void ProcessGunHeat()
+    {
+        if (isFiring)
+        {
+            StartCoroutine(IncreaseGunHeat());
+        }
+        else
+        {
+            StartCoroutine(DecreaseGunHeat());
+        }
     }
 
     private void OnPlayerDeath() // called by string reference
     {
-        Debug.Log("Controls Frozen");
         isAlive = false;
         
     }
@@ -98,5 +119,38 @@ public class PlayerController : MonoBehaviour
     public int GetBulletDamage()
     {
         return bulletDamage;
+    }
+
+    private IEnumerator IncreaseGunHeat()
+    {
+        if(currentGunHeat < maxGunHeat)
+        {
+            float gunHeatFactor = gunHeatUpSpeed * Time.deltaTime;
+            currentGunHeat = Mathf.Clamp(currentGunHeat, 0f, maxGunHeat);
+            currentGunHeat = currentGunHeat + 1f * gunHeatFactor;
+            yield return new WaitForSeconds(timeGunHeatIncrease);
+        }
+    }
+
+    private IEnumerator DecreaseGunHeat()
+    {
+        float gunHeatFactor = gunCoolDownSpeed * Time.deltaTime;
+        currentGunHeat = Mathf.Clamp(currentGunHeat, 0f, maxGunHeat);
+        currentGunHeat = currentGunHeat - 1f * gunHeatFactor;
+        yield return new WaitForSeconds(timeGunHeatDecrease);              
+    }
+    public float GetCurrentGunHeat()
+    {
+        return currentGunHeat;
+    }
+
+    public float GetMaxGunHeat()
+    {
+        return maxGunHeat;
+    }
+
+    private bool IsGunOverheated()
+    {
+        return currentGunHeat >= maxGunHeat;
     }
 }

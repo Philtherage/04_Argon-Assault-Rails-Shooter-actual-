@@ -12,9 +12,13 @@ public class ScoreHandler : MonoBehaviour
     [SerializeField] float timeBetweenPoints = 5f;
     [Tooltip("the score increases over the set amount of time")]
     [SerializeField] float scoreUpdateTime = .2f;
+    [SerializeField] Slider gunHeatSlider;
 
     private float playerScore = 0;
     private float displayScore = 0;
+
+
+    PlayerController player;
 
     private void Awake()
     {
@@ -32,6 +36,7 @@ public class ScoreHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = FindObjectOfType<PlayerController>();
         displayScore = playerScore;
         scoreText.text = playerScore.ToString();
         InvokeRepeating("PointsOverTime", timeBetweenPoints, timeBetweenPoints);
@@ -41,6 +46,7 @@ public class ScoreHandler : MonoBehaviour
     void Update()
     {
         StartCoroutine(ScoreIncreament());
+        DisplayGunHeat();
     }
 
     private void PointsOverTime() // this method is called using a string ref
@@ -64,6 +70,10 @@ public class ScoreHandler : MonoBehaviour
         playerScore += score;
     }
 
-    
+    private void DisplayGunHeat()
+    {
+        gunHeatSlider.maxValue = player.GetMaxGunHeat();
+        gunHeatSlider.value = player.GetCurrentGunHeat();
+    }
 
 }
