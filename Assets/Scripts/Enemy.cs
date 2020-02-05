@@ -6,6 +6,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] GameObject deathExplosion;
+    [Tooltip("The Number of Points this enemy is worth")]
+    [SerializeField] int score = 100;
+    [SerializeField] Transform parent;
 
 
     BoxCollider boxCollider;
@@ -23,10 +26,15 @@ public class Enemy : MonoBehaviour
     private void OnParticleCollision(GameObject other)
     {
         if(other.GetComponent<PlayerController>()) { return; }    
-        Destroy(gameObject,1f);
-        deathExplosion.SetActive(true);
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
-        boxCollider.enabled = false;
+        Destroy(gameObject);
+
+        GameObject deathVFX = Instantiate(deathExplosion, transform.position, Quaternion.identity) as GameObject;
+        deathVFX.transform.parent = parent;
+        Destroy(deathVFX, 1.5f);     
+          
+        FindObjectOfType<ScoreHandler>().AddToScore(score);
+        
         
     }
+
 }
