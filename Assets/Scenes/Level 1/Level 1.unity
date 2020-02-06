@@ -1087,6 +1087,7 @@ PlayableDirector:
     value: {fileID: 0}
   m_ExposedReferences:
     m_References:
+    - 9a2a7068497926c428568503d3b8a295: {fileID: 1025758089}
     - 74c2d6588885e4d44aa4a0bc1aaa4357: {fileID: 978018207}
     - 407f881c4bcf7b046b5d5796059242f2: {fileID: 49703284}
 --- !u!1 &978018207
@@ -1166,6 +1167,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 14.952001, z: 0}
+--- !u!1 &1025758089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1025758089, guid: 157a1ce0385e4d7448e0a36fdb6d39d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4436898807149990941}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1050277104 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1090395654553690, guid: e14d375f5a36551479fc2f172353b1ba,
@@ -3077,6 +3084,38 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 963194227}
     - target: {fileID: 304421544, guid: 157a1ce0385e4d7448e0a36fdb6d39d6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025758090, guid: 157a1ce0385e4d7448e0a36fdb6d39d6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025758090, guid: 157a1ce0385e4d7448e0a36fdb6d39d6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -143
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025758090, guid: 157a1ce0385e4d7448e0a36fdb6d39d6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025758090, guid: 157a1ce0385e4d7448e0a36fdb6d39d6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025758090, guid: 157a1ce0385e4d7448e0a36fdb6d39d6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 141.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025758090, guid: 157a1ce0385e4d7448e0a36fdb6d39d6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025758090, guid: 157a1ce0385e4d7448e0a36fdb6d39d6, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025758090, guid: 157a1ce0385e4d7448e0a36fdb6d39d6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
