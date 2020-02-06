@@ -2884,6 +2884,16 @@ PrefabInstance:
       propertyPath: gunHeatUpSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1288013474200524718, guid: 8dbf854f0c48ad64e8790d13facb3cab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6017623300572338283, guid: 8dbf854f0c48ad64e8790d13facb3cab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dbf854f0c48ad64e8790d13facb3cab, type: 3}
 --- !u!4 &1288013474787036824 stripped

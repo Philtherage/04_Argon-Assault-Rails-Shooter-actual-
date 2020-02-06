@@ -82,21 +82,28 @@ public class PlayerController : MonoBehaviour
             if (bullets.Count <= 0) { Debug.LogError("NO BULLET OBJECT LINKED TO PLAYERCONTROLLER! "); }
             foreach (GameObject bullet in bullets)
             {
-                if (IsGunOverheated()) { bullet.SetActive(false); }
-                bullet.SetActive(true);
-                isFiring = true;                
+
+                isFiring = true;
+                var bpsEmission = bullet.GetComponent<ParticleSystem>().emission;
+                bpsEmission.enabled = true;
+                if (IsGunOverheated())
+                {
+                    var bps = bullet.GetComponent<ParticleSystem>().emission;
+                    bps.enabled = false;
+                }
             }
         }
         else
         {
             foreach (GameObject bullet in bullets)
             {
-                bullet.SetActive(false);
+                var bps = bullet.GetComponent<ParticleSystem>().emission;
+                bps.enabled = false;
                 isFiring = false;
             }
             
         }
-}
+    }
 
     private void ProcessGunHeat()
     {
